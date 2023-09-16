@@ -21,6 +21,7 @@ const renderDropDownItem = (list = []) => {
     const el = document.createElement('div');
     el.innerHTML = item;
     el.classList.add('dropdown-item');
+    el.setAttribute('data-key', item);
     sugFreg.appendChild(el);
   });
 
@@ -46,4 +47,14 @@ const handleChangeInput = (event) => {
   }
 };
 
+const handleSelect = (event) => {
+  const { key } = event.target.dataset;
+  if (key) {
+    inputBox.value = key;
+    resetState();
+  }
+};
+
 inputBox.addEventListener('input', debounce(handleChangeInput, 500));
+
+suggestionBox.addEventListener('click', handleSelect);

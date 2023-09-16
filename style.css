@@ -30,4 +30,5 @@ input:focus {
 .suggestions-container > .dropdown-item {
   padding: 10px;
   border-bottom: 0.6px solid lightgrey;
+  cursor: pointer;
 }
